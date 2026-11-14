@@ -41,7 +41,7 @@ Stars are awarded for fixing the problem, using few tests, and predicting every 
 
 - **Life support, radiation shielding, power and food:** each has at least one case, and cases show how the systems depend on each other. A weak battery leads to the heater being cut, the greenhouse freezing, and the lettuce stopping growing.
 - **Communication delay:** Ask Mission Control costs crew hours because of the real Earth–Mars message delay.
-- **No free choices:** tests, wrong calls, wrong chain cards, wrong fixes and asking for help all cost crew hours. Every quick decision has a downside, this design is done on purpose to challenge the player to inforce positive reinforcement (operant conditioning https://pmc.ncbi.nlm.nih.gov/articles/PMC1473025/ )
+- **No free choices:** tests, wrong calls, wrong chain cards, wrong fixes and asking for help all cost crew hours. Every quick decision has a downside, this design is done on purpose to challenge the player.
 
 - **Replayability:** random root causes, plus stars to improve on.
 - **Plain language:** short sentences. Words like *sol*, *ppm*, *kPa* and *ohms* are explained next to the chart where they appear.
