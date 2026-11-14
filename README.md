@@ -7,7 +7,7 @@ To win, players must think like scientists: predict, test, rule things out and f
 
 Built for the 2026 NASA Space Apps Challenge : [Build a Junior Astronaut Mission Trainer](https://www.spaceappschallenge.org/2026/challenges/junior-astronaut-mission-trainer/).
 
-**Play it:** [Root-Cause](https://ahmedalnidawi.github.io/Root-Cause/_
+**Play it:** [Root-Cause](https://ahmedalnidawi.github.io/Root-Cause/)
 We made it accessible by having to play it easily by clicking the link above, or download the code and open index.html.
 
 ---
