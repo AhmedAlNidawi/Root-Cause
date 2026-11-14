@@ -67,9 +67,27 @@ This is archived data stored in the game, not a live feed. The outpost's own rea
 ## Playtesting
 
 21 people played the game and filled in a feedback form.
- [ill change this put data once its on github]
+## Playtesting
 
-We listened and made the significant changes to help with the gameplay, we addressed such complaints by adding a tutorial, instructions and adding more levels.
+21 people played Root Cause and filled in a feedback form.
+
+- **Ages:** 13 of 21 players (62%) were in our target age of 7–12. The rest were 13 or older.
+- **Easy to play:** 14 of 21 (67%) rated the game 4 or 5 out of 5 for being easy to play (average 3.7).
+- **Translations:** 7 players played in another language. 5 of those 7 rated the translation 4 or 5 out of 5, and nobody rated it below 3.
+- **Suggestions:** 2 of the 3 written suggestions asked for clearer instructions at the start, and 1 asked for more levels.
+
+**What we changed:** after this feedback we made the start clearer. Case 1 walks players through each step, Ask Mission Control gives a hint when someone is stuck, and words like *sol* and *kPa* are explained on screen.
+
+<img src="images/form-ages.png" width="500">
+
+<img src="images/form-easy.png" width="500">
+
+<img src="images/form-suggestions.png" width="500">
+
+<img src="images/form-translation-used.png" width="500">
+
+<img src="images/form-translation-rating.png" width="500">
+
 ## How it's built
 
 Plain HTML, CSS and JavaScript, with no frameworks, libraries or build step. Sounds are generated in code with Web Audio API.
