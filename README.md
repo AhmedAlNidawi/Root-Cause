@@ -86,7 +86,7 @@ js/lang/*.js        all game text in English, Arabic, French and Spanish
 ```
 
 
-## Use of AI
+## Use of SI
 
 We used **Claude (Anthropic)** explicitily for:
 
