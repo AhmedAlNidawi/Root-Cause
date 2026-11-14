@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Root Cause: Mars Outpost Troubleshooter (Think Like a Scientist)</title>
+  <meta name="description" content="Something is wrong at the Mars outpost. Find the real cause like a NASA flight controller, using real NASA data.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=B612:wght@400;700&family=B612+Mono:wght@400;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="screen active" id="title-screen">
+    <div class="title-console">
+      <div class="crt title-crt">
+        <p class="crt-small" data-text="place">Suhail Base, Gale Crater, Mars</p>
+        <h1><span data-text="title">Root Cause</span><span class="cursor">_</span></h1>
+        <p data-text="intro">Something is wrong at the Mars base, and it is your job to find out what.</p>
+        <p class="crt-amber" data-text="motto">Thinking is free, but testing costs time.</p>
+        <p class="crt-small" data-text="aiNotice">Arabic, French and Spanish translations were made with AI (Claude) and may contain mistakes.</p>
+      </div>
+      <div class="title-buttons">
+        <button class="key lit big" onclick="openCaseList()" data-text="start">Start</button>
+        <div class="title-options">
+          <div class="language-buttons" id="language-buttons"></div>
+          <button class="key" onclick="openDataScreen()" data-text="dataButton">NASA data used</button>
+          <button class="key" id="sound-btn" onclick="toggleSound()">Sound on</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen" id="data-screen">
+    <div class="wrap narrow">
+      <div class="bar">
+        <button class="key" onclick="showScreen('title-screen'); playSound('click')" data-text="back">Back</button>
+        <h2 data-text="dataTitle">NASA data used</h2>
+      </div>
+      <p class="data-intro" data-text="dataIntro">Every number on this page is real.</p>
+      <div id="data-list"></div>
+    </div>
+  </div>
+
+  <div class="screen" id="cases-screen">
+    <div class="wrap narrow">
+      <div class="bar">
+        <button class="key" onclick="showScreen('title-screen'); playSound('click')" data-text="back">Back</button>
+        <h2 data-text="caseFiles">Case files</h2>
+        <p class="rank" id="rank"></p>
+      </div>
+      <div class="case-list" id="case-list"></div>
+    </div>
+  </div>
+
+  <div class="screen" id="case-screen">
+    <div class="wrap">
+      <div class="bar">
+        <button class="key" onclick="openCaseList()" data-text="caseFiles">Case files</button>
+        <h2 id="case-title"></h2>
+        <div class="gauges">
+          <div class="gauge">
+            <span data-text="crewHours">Crew hours</span>
+            <div class="lamp-row" id="hours"></div>
+          </div>
+          <div class="gauge">
+            <span data-text="tests">Tests</span>
+            <div class="lamp-row" id="tests-used"></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="alarm-strip" id="alarm-strip"></p>
+
+      <div class="case-grid">
+        <div class="panel">
+          <h3><span data-text="readings">Readings</span> <span class="free" data-text="free">Free</span></h3>
+          <div id="readings"></div>
+          <h3 class="radio-title" data-text="crewRadio">Crew radio</h3>
+          <div id="radio"></div>
+          <button class="key ask" id="ask-btn" onclick="askMissionControl()">
+            <span data-text="askButton">Ask Mission Control</span>
+            <span class="lamp-row"><i class="lamp on"></i><i class="lamp on"></i></span>
+          </button>
+          <p class="hint" data-text="askHint">Messages take 4 to 24 minutes each way.</p>
+        </div>
+
+        <div class="panel evidence">
+          <h3 class="evidence-title" id="evidence-title"></h3>
+          <div class="crt">
+            <canvas id="chart" width="1280" height="560"></canvas>
+            <p class="crt-empty" id="crt-empty" data-text="emptyScreen">Tap a reading or run a test</p>
+          </div>
+          <div class="legend" id="legend"></div>
+          <p class="units" id="units"></p>
+          <div class="note" id="note"></div>
+          <h3 data-text="notes">Case notes</h3>
+          <ul class="notes" id="notes"></ul>
+        </div>
+
+        <div class="panel">
+          <div class="tabs">
+            <button class="tab active" id="tab-suspects" onclick="showTab('suspects'); playSound('click')" data-text="suspects">Suspects</button>
+            <button class="tab" id="tab-tests" onclick="showTab('tests'); playSound('click')" data-text="tests">Tests</button>
+          </div>
+          <div id="suspects-box">
+            <p class="hint" data-text="ruleOutHint">Tap a suspect to rule it out</p>
+            <ul class="list" id="suspects"></ul>
+          </div>
+          <div id="tests-box" hidden>
+            <p class="hint" data-text="testsHint">Each test uses crew hours</p>
+            <ul class="list" id="tests"></ul>
+          </div>
+          <button class="key lit big call-it" id="call-it" onclick="callIt()" data-text="callIt">Call it</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen" id="result-screen">
+    <div class="result" id="result"></div>
+  </div>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal-box" id="modal-box"></div>
+  </div>
+
+  <div class="stamp" id="stamp"></div>
+
+  <script src="js/lang/en.js"></script>
+  <script src="js/lang/ar.js"></script>
+  <script src="js/lang/fr.js"></script>
+  <script src="js/lang/es.js"></script>
+  <script src="js/sound.js"></script>
+  <script src="js/sim.js"></script>
+  <script src="js/graph.js"></script>
+  <script src="js/cases.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
